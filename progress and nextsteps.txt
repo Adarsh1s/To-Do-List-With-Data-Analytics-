@@ -1,0 +1,162 @@
+# Progress Report: To-Do List with Data Analytics
+
+## **Project Overview**
+We are building a **To-Do List Web App** using Django, PostgreSQL, and Streamlit. The backend is powered by Django REST Framework (DRF), and the frontend is built with Streamlit for a lightweight, Python-only web interface.
+
+---
+
+## **Completed Steps**
+### **1️⃣ Project Setup**
+✅ Created the project folder: `C:\PP_Project\todo_analytics`
+✅ Created and activated a **virtual environment**
+   - Windows:
+     ```sh
+     python -m venv venv
+     venv\Scripts\activate
+     ```
+   - Linux/Mac:
+     ```sh
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
+✅ Installed required packages:
+   ```sh
+   pip install django djangorestframework psycopg2 pandas matplotlib streamlit
+   ```
+✅ Created `requirements.txt` and `README.md` for project documentation
+
+---
+
+### **2️⃣ Django Backend Setup**
+✅ Created a Django project:
+   ```sh
+   django-admin startproject backend
+   ```
+✅ Created a **Django app** for tasks:
+   ```sh
+   python manage.py startapp tasks
+   ```
+✅ Configured **PostgreSQL Database** in `backend/settings.py`:
+   ```python
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql',
+           'NAME': 'todo_db',
+           'USER': 'your_db_user',
+           'PASSWORD': 'your_db_password',
+           'HOST': 'localhost',
+           'PORT': '5432',
+       }
+   }
+   ```
+✅ Applied migrations and created a superuser:
+   ```sh
+   python manage.py migrate
+   python manage.py createsuperuser
+   ```
+✅ Registered the **Task model** in `tasks/models.py`:
+   ```python
+   class Task(models.Model):
+       title = models.CharField(max_length=255)
+       description = models.TextField(blank=True, null=True)
+       completed = models.BooleanField(default=False)
+       created_at = models.DateTimeField(auto_now_add=True)
+   ```
+✅ Created a **Django REST API** for task management:
+   - Created `tasks/serializers.py`
+   - Created API views in `tasks/views.py`
+   - Configured URL routing in `tasks/urls.py`
+✅ Tested the API using Postman (`http://127.0.0.1:8000/api/tasks/`)
+
+---
+
+### **3️⃣ Streamlit Frontend Setup**
+✅ Created a `frontend` folder and `app.py` for the UI:
+   ```sh
+   mkdir frontend
+   cd frontend
+   touch app.py
+   ```
+✅ Developed the **Streamlit UI** in `app.py`:
+   - Fetched tasks from the API
+   - Displayed tasks with checkboxes
+   - Allowed users to add new tasks
+   - Implemented task deletion with a ❌ button
+✅ Added **Task Completion Analytics** with a pie chart:
+   - Used `matplotlib` to visualize completed vs. pending tasks
+✅ Ran the Streamlit app:
+   ```sh
+   streamlit run app.py
+   ```
+
+---
+
+## **Next Steps**
+🚀 Possible Improvements:
+1️⃣ **User Authentication** – Allow users to sign up and manage their own tasks
+2️⃣ **Task Editing Feature** – Enable users to update tasks from Streamlit
+3️⃣ **Advanced Analytics** – Show trends, task completion rates, and productivity charts
+
+
+
+# Next Steps: To-Do List with Data Analytics
+
+## **Project Status**
+We have completed the following:
+- Set up Django backend with PostgreSQL
+- Created a REST API for tasks
+- Built a Streamlit UI for task management
+- Added task creation, deletion, and analytics
+
+Now, we will continue improving the project with additional features.
+
+---
+
+## **Upcoming Features**
+### 1️⃣ User Authentication
+- Implement Django authentication (Login/Signup)
+- Use Token-based authentication for API
+- Allow users to manage their own tasks
+
+### 2️⃣ Task Editing Feature
+- Enable users to update task details
+- Add a checkbox to mark tasks as completed
+
+### 3️⃣ Advanced Analytics
+- Show task completion trends (daily/weekly)
+- Track productivity using charts
+- Use Pandas for statistical insights
+
+---
+
+## **How to Continue**
+1. **Clone the Repository**
+   ```sh
+   git clone <your-repo-url>
+   cd todo_analytics
+   ```
+2. **Activate Virtual Environment**
+   ```sh
+   venv\Scripts\activate  # Windows
+   source venv/bin/activate  # Mac/Linux
+   ```
+3. **Run Django Server**
+   ```sh
+   python manage.py runserver
+   ```
+4. **Run Streamlit Frontend**
+   ```sh
+   cd frontend
+   streamlit run app.py
+   ```
+
+---
+
+## **Collaboration**
+- Use **Git** to track changes and push updates
+- Communicate in the team for feature assignments
+- Keep updating `progress.md` to track work
+
+🚀 Let’s start with **User Authentication** next!
+
+
